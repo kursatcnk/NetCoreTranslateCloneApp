@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Kursatcnk - Türkçe Translator</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NetCoreTranslateCloneApp.styles.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        /* Neon yanıp sönen nokta */
+        .navbar-brand::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+                background-color: #006400; /* yeşil neon */
+                box-shadow: 0 0 5px #006400, 0 0 10px #006400, 0 0 20px #006400;
+            animation: blink 1s infinite;
+        }
+
+        @@keyframes blink {
+            0%, 50%, 100% {
+                opacity: 1;
+            }
+            25%, 75% {
+                opacity: 0;
+            }
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1rem 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #0d6efd;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f3f5;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+            border-color: #0d6efd;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #0d6efd;
+            color: #fff;
+            border-color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Türkçe Translator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="https://github.com/kursatcnk" target="_blank">Gizlilik</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Ara..." aria-label="Ara">
+                        <button class="btn btn-outline-primary" type="submit">Git</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1 py-4">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 - Kürşatcan Çankaroğlu - <a href="https://github.com/kursatcnk" target="_blank">Gizlilik</a>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
